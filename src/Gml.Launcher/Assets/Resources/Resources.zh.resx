@@ -178,4 +178,7 @@
   <data name="News" xml:space="preserve">
     <value>新闻</value>
   </data>
+  <data name="Socials" xml:space="preserve">
+    <value>社群網路</value>
+  </data>
 </root>

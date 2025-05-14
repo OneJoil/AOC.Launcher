@@ -15,6 +15,10 @@ public class SidebarComponent : TemplatedControl
         AvaloniaProperty.Register<SidebarComponent, ICommand>(
             nameof(LogoutCommand));
 
+    public static readonly StyledProperty<ICommand> InfoCommandProperty =
+        AvaloniaProperty.Register<SidebarComponent, ICommand>(
+            nameof(InfoCommand));
+
     public static readonly StyledProperty<ListViewModel> ListViewModelProperty =
         AvaloniaProperty.Register<SidebarComponent, ListViewModel>(
             nameof(ListViewModel));
@@ -39,6 +43,12 @@ public class SidebarComponent : TemplatedControl
     {
         get => GetValue(LogoutCommandProperty);
         set => SetValue(LogoutCommandProperty, value);
+    }
+
+    public ICommand InfoCommand
+    {
+        get => GetValue(InfoCommandProperty);
+        set => SetValue(InfoCommandProperty, value);
     }
 
     public ICommand ProfileCommand

@@ -24,6 +24,7 @@ using Gml.Launcher.Core.Services;
 using Gml.Launcher.Models;
 using Gml.Launcher.ViewModels.Base;
 using Gml.Launcher.ViewModels.Components;
+using Gml.Launcher.Views.Pages;
 using Gml.Web.Api.Dto.Messages;
 using Gml.Web.Api.Dto.News;
 using Gml.Web.Api.Dto.Profile;
@@ -99,6 +100,11 @@ public class OverviewPageViewModel : PageViewModelBase
                 ListViewModel.SelectedProfile!))
         );
 
+        GoInfoCommand = ReactiveCommand.CreateFromObservable(
+            () => screen.Router.Navigate.Execute(new InfoPageViewModel(
+                screen))
+        );
+
         HomeCommand = ReactiveCommand.Create(async () => await LoadProfiles());
 
         _gmlManager.ProgressChanged.Subscribe(percentage =>
@@ -128,6 +134,7 @@ public class OverviewPageViewModel : PageViewModelBase
     public ICommand LogoutCommand { get; set; }
     public ICommand PlayCommand { get; set; }
     public ICommand GoSettingsCommand { get; set; }
+    public ICommand GoInfoCommand { get; set; }
     public ICommand HomeCommand { get; set; }
     public ListViewModel ListViewModel { get; } = new();
     public IUser User { get; }

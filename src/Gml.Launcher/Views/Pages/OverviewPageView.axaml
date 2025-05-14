@@ -18,12 +18,14 @@
     <Grid ColumnDefinitions="Auto, *">
 
         <!-- Background -->
-        <components:BackgroundComponent Grid.Column="0"
-                                        Grid.ColumnSpan="2"
+        <components:BackgroundComponent Grid.Column="1"
+                                        Height="185"
+                                        VerticalAlignment="Top"
                                         converters:AsyncStreamToImageLoader.Source="{Binding ListViewModel.SelectedProfile.Background}" />
 
-        <Rectangle Grid.Column="0"
-                   Grid.ColumnSpan="2"
+        <Rectangle Grid.Column="1"
+                   Height="185"
+                   VerticalAlignment="Top"
                    Opacity=".5"
                    Fill="{DynamicResource BackgroundOverlay}" />
 
@@ -39,24 +41,6 @@
                     Online="{Binding ListViewModel.SelectedProfile.Servers,
                     Converter={converters:SumServersOnlineConverter}}"
                     VerticalAlignment="Center" />
-
-                <!-- News -->
-                <Grid RowDefinitions="Auto, 0, *" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="2">
-                    <TextBlock Classes="HeadlineText" Text="{x:Static lang:Resources.News}"/>
-                    <ScrollViewer Grid.Row="2" CornerRadius="10" ClipToBounds="True">
-                        <ItemsControl ItemsSource="{Binding News}">
-                            <ItemsControl.DataTemplates>
-                                <DataTemplate x:DataType="news:NewsReadDto">
-
-                                    <components:NewsComponent Title="{Binding Title}"
-                                                              Description="{Binding Content}"
-                                                              Date="{Binding Date}"
-                                                              Margin="0, 0, 0, 10"/>
-                                </DataTemplate>
-                            </ItemsControl.DataTemplates>
-                        </ItemsControl>
-                    </ScrollViewer>
-                </Grid>
 
                 <!-- Server Info -->
                 <components:ServerInfo Grid.Column="0"
@@ -77,36 +61,6 @@
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left" />
 
-                <!-- Footer -->
-                <Grid Grid.Row="4"
-                      Grid.Column="0"
-                      Grid.ColumnSpan="3"
-                      ColumnDefinitions="35, *, Auto">
-
-                    <StackPanel Grid.Column="0"
-                                Orientation="Horizontal"
-                                Spacing="10">
-
-                        <components:GmlButton IconPath="/Assets/Images/discord.svg"
-                                              IconSize="32"
-                                              Padding="0, 5, 0, 0"
-                                              Command="{Binding OpenLinkCommand}"
-                                              CommandParameter="https://discord.gg/XUZMFBvkzM"
-                                              Classes="Icon Additional"
-                                              Text="{x:Static lang:Resources.Website}" />
-
-                        <components:GmlButton IconPath="/Assets/Images/app.svg"
-                                              IconSize="22"
-                                              Command="{Binding OpenLinkCommand}"
-                                              CommandParameter="https://recloud.tech"
-                                              Padding="15, 0, 15, 0"
-                                              Classes="TextIcon Additional"
-                                              Text="{x:Static lang:Resources.Website}" />
-
-                    </StackPanel>
-
-                </Grid>
-
             </Grid>
 
         </Border>
@@ -116,7 +70,8 @@
              ListViewModel="{Binding ListViewModel}"
              LogoutCommand="{Binding LogoutCommand}"
              HomeCommand="{Binding HomeCommand}"
-             ProfileCommand="{Binding GoProfileCommand}" />
+             ProfileCommand="{Binding GoProfileCommand}"
+             InfoCommand="{Binding GoInfoCommand}"/>
 
         <!-- ProgressBar -->
         <components:ProgressBar

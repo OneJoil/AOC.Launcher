@@ -176,4 +176,7 @@
   <data name="News" xml:space="preserve">
     <value>News</value>
   </data>
+  <data name="Socials" xml:space="preserve">
+    <value>Socials</value>
+  </data>
 </root>

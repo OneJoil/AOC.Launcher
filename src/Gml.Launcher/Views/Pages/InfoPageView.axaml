@@ -1,0 +1,119 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Gml.Launcher.ViewModels.Pages"
+             xmlns:components="clr-namespace:Gml.Launcher.Views.Components"
+             xmlns:lang="clr-namespace:Gml.Launcher.Assets.Resources"
+             xmlns:news="clr-namespace:Gml.Web.Api.Dto.News;assembly=Gml.Web.Api.Dto"
+             xmlns:converters="clr-namespace:Gml.Launcher.Core.Converters"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:DataType="vm:InfoPageViewModel"
+             x:Class="Gml.Launcher.Views.Pages.InfoPageView">
+
+    <Grid>
+        <!-- Background -->
+        <components:BackgroundComponent Classes="Image" Source="/Assets/Images/background.jpg" />
+        <Rectangle Fill="{DynamicResource BackgroundOverlay}" />
+
+        <Border Padding="20">
+            <Grid RowDefinitions="Auto, 30, *">
+
+                <!-- Navigation -->
+                <Grid Grid.ColumnSpan="3" Grid.Row="0">
+                    <components:GmlButton Classes="Icon Additional"
+                                          Padding="15, 0, 15 ,0"
+                                          IconPath="/Assets/Images/back.svg"
+                                          IconSize="22"
+                                          Text="{x:Static lang:Resources.Back}"
+                                          Command="{Binding GoBackCommand}" />
+                </Grid>
+
+                <Grid Grid.Row="2" ColumnDefinitions="300, 20, *">
+
+                    <components:StackFrameBorder Grid.Column="0"
+                                                 Spacing="10"
+                                                 VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0, 0, 0, 10"
+                                    Spacing="10">
+                            <Svg Path="/Assets/Images/folder.svg"
+                                 Width="28"
+                                 Height="28" />
+                            <TextBlock Text="{x:Static lang:Resources.Socials}"
+                                       Classes="HeadlineText"
+                                       Margin="0"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+
+                        <Grid ColumnDefinitions="Auto">
+                            <StackPanel Orientation="Vertical"
+                                        Grid.Column="0"
+                                        Spacing="10">
+                                <components:GmlButton IconPath="/Assets/Images/discord.svg"
+                                                      IconSize="32"
+                                                      Padding="15, 0, 15, 0"
+                                                      Command="{Binding OpenLinkCommand}"
+                                                      CommandParameter="https://discord.gg/XUZMFBvkzM"
+                                                      Classes="Icon Additional"
+                                                      Text="{x:Static lang:Resources.Website}" />
+
+                                <components:GmlButton IconPath="/Assets/Images/app.svg"
+                                                      IconSize="22"
+                                                      Command="{Binding OpenLinkCommand}"
+                                                      CommandParameter="https://recloud.tech"
+                                                      Padding="15, 0, 15, 0"
+                                                      Classes="TextIcon Additional"
+                                                      Text="{x:Static lang:Resources.Website}" />
+                            </StackPanel>
+                        </Grid>
+
+                    </components:StackFrameBorder>
+
+                    <components:StackFrameBorder Grid.Column="2"
+                                                 Spacing="10"
+                                                 VerticalAlignment="Top">
+
+                        <StackPanel Spacing="10">
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Left"
+                                        Spacing="10">
+                                <Svg Path="/Assets/Images/folder.svg" Width="48"/>
+                                <TextBlock Classes="HeadlineText"
+                                           Margin="0, 5, 0, 0"
+                                           VerticalAlignment="Center"
+                                           Text="{x:Static lang:Resources.News}" />
+                            </StackPanel>
+
+                            <ScrollViewer CornerRadius="10" ClipToBounds="True">
+                                <ItemsControl>
+                                    <ItemsControl.DataTemplates>
+                                        <DataTemplate x:DataType="news:NewsReadDto">
+
+                                            <components:NewsComponent Title="{Binding Title}"
+                                                                      Description="{Binding Content}"
+                                                                      Date="{Binding Date}"
+                                                                      Margin="0, 0, 0, 10"/>
+                                        </DataTemplate>
+                                    </ItemsControl.DataTemplates>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </StackPanel>
+                    </components:StackFrameBorder>
+
+                    <ScrollViewer Grid.Column="2">
+
+                    </ScrollViewer>
+
+                </Grid>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+
+</UserControl>
+

@@ -170,4 +170,7 @@
   <data name="WindowSize" xml:space="preserve">
     <value>Tamaño de la ventana</value>
   </data>
+  <data name="Socials" xml:space="preserve">
+    <value>Sociales</value>
+  </data>
 </root>

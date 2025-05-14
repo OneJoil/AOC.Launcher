@@ -52,7 +52,6 @@
 
                         <components:GmlButton Classes="TextIcon Primary"
                                               Margin="0, 15, 0, 0"
-                                              Padding="15, 10, 10, 10"
 
                                               Command="{Binding OpenLinkCommand}"
                                               CommandParameter="https://recloud.tech"

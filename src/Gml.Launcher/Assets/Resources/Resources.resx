@@ -177,11 +177,12 @@
     <value>Empty</value>
   </data>
   <data name="MinecraftExceptionStartException" xml:space="preserve">
-    <value>An error occurred during the game. The administration has already received the details of your error.
-
-</value>
+    <value>An error occurred during the game. The administration has already received the details of your error.</value>
   </data>
   <data name="News" xml:space="preserve">
     <value>News</value>
+  </data>
+  <data name="Socials" xml:space="preserve">
+    <value>Socials</value>
   </data>
 </root>

@@ -354,5 +354,12 @@ namespace Gml.Launcher.Assets.Resources {
                 return ResourceManager.GetString("News", resourceCulture);
             }
         }
+        public static string Socials
+        {
+            get
+            {
+                return ResourceManager.GetString("Socials", resourceCulture);
+            }
+        }
     }
 }

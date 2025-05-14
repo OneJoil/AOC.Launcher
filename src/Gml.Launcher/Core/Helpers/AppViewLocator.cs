@@ -14,6 +14,7 @@ public class AppViewLocator : IViewLocator
             ModsPageViewModel context => new ModsPageView { DataContext = context },
             OverviewPageViewModel context => new OverviewPageView { DataContext = context },
             ProfilePageViewModel context => new ProfilePageView { DataContext = context },
+            InfoPageViewModel context => new InfoPageView { DataContext = context },
             SettingsPageViewModel context => new SettingsPageView { DataContext = context },
             LoginPageViewModel context => new LoginPageView { DataContext = context },
 

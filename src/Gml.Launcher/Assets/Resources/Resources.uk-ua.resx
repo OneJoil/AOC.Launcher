@@ -22,7 +22,7 @@
     <value>Доступний</value>
   </data>
   <data name="Back" xml:space="preserve">
-    <value>НАЗАД</value>
+    <value>назад</value>
   </data>
   <data name="Cabinet" xml:space="preserve">
     <value>Особистий кабінет</value>
@@ -173,5 +173,8 @@
   </data>
   <data name="WindowSize" xml:space="preserve">
     <value>Розміри вікна</value>
+  </data>
+  <data name="Socials" xml:space="preserve">
+    <value>Соц. Мережі</value>
   </data>
 </root>

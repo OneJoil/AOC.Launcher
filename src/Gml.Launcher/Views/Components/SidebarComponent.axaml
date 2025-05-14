@@ -16,7 +16,8 @@
         <Setter Property="Template">
             <ControlTemplate>
 
-                <Border Padding="0, 20">
+                <Border Padding="0, 20"
+                        Background="{StaticResource BackgroundColor}">
                     <Grid RowDefinitions="Auto, 0, *, 80, Auto"
                           Width="80">
 
@@ -42,13 +43,27 @@
 
                         </StackPanel>
 
-                        <controls:GmlButton Grid.Row="4"
-                                            Classes="Icon Secondary"
-                                            Command="{TemplateBinding LogoutCommand}"
-                                            Width="60"
-                                            Height="60"
-                                            IconPath="/Assets/Images/logout.svg"
-                                            IconSize="20" />
+                        <StackPanel Grid.Row="4"
+                                    Spacing="10"
+                                    VerticalAlignment="Bottom">
+
+                            <controls:GmlButton
+                                Classes="Icon Secondary"
+                                Command="{TemplateBinding InfoCommand}"
+                                Width="60"
+                                Height="60"
+                                IconPath="/Assets/Images/info.svg"
+                                IconSize="25"/>
+
+                            <controls:GmlButton
+                                Classes="Icon Secondary"
+                                Command="{TemplateBinding LogoutCommand}"
+                                Width="60"
+                                Height="60"
+                                IconPath="/Assets/Images/logout.svg"
+                                IconSize="20" />
+
+                        </StackPanel>
 
                     </Grid>
                 </Border>

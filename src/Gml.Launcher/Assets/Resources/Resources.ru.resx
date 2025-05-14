@@ -49,7 +49,7 @@
     <value>Переподключение...</value>
   </data>
   <data name="Back" xml:space="preserve">
-    <value>НАЗАД</value>
+    <value>назад</value>
   </data>
   <data name="Cabinet" xml:space="preserve">
     <value>Личный кабинет</value>
@@ -173,5 +173,8 @@
   </data>
   <data name="News" xml:space="preserve">
     <value>Новости</value>
+  </data>
+  <data name="Socials" xml:space="preserve">
+    <value>Соц. Сети</value>
   </data>
 </root>

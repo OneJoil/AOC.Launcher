@@ -31,15 +31,15 @@
 
     <Style Selector="controls|GmlButton.Icon">
 
-        <Setter Property="CornerRadius" Value="50" />
+        <Setter Property="CornerRadius" Value="1" />
         <Setter Property="Height" Value="50" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Width" Value="50" />
 
         <Setter Property="Template">
             <ControlTemplate>
-                <Button Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
+                <Button Background="Transparent"
+                        BorderBrush="Transparent"
                         CommandParameter="{TemplateBinding CommandParameter}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         Padding="{TemplateBinding Padding}"
@@ -48,9 +48,19 @@
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Width="{TemplateBinding Width}"
                         Height="{TemplateBinding Height}">
+
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}"
+                            BoxShadow="{Binding InnerShadow, RelativeSource={RelativeSource TemplatedParent}}"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}">
                     <Svg Path="{TemplateBinding IconPath}"
                          Width="{TemplateBinding IconSize}"
                          Height="{TemplateBinding IconSize}" />
+                    </Border>
                 </Button>
             </ControlTemplate>
         </Setter>
@@ -92,8 +102,8 @@
                             <Svg Path="{TemplateBinding IconPath}"
                                  Width="{TemplateBinding IconSize}"
                                  Height="{TemplateBinding IconSize}"/>
-                            <Border Padding="0 4"
-                                    Margin=" 0 -3 0 0">
+                            <Border Padding="0 15"
+                                    Margin=" 0 -11 0 0">
                                 <controls:OutlinedTextBlock Text="{TemplateBinding Text}"
                                                             VerticalAlignment="Center"
                                                             FontSize="{TemplateBinding FontSize}"
